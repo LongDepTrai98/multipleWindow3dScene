@@ -9,4 +9,11 @@ list(APPEND CMAKE_MODULE_PATH ${IMGUI_NODE_EDITOR_ROOT_DIR}/misc/cmake-modules)
 set(CMAKE_CXX_STANDARD            20)
 set(CMAKE_CXX_STANDARD_REQUIRED   YES)
 set(project_name app)
+
+#find glfw3
+find_package(OpenGL REQUIRED)
+find_package(glfw3 CONFIG REQUIRED)
+
 add_executable(${project_name} ./src/main.cpp)
+target_link_libraries(${project_name} PRIVATE
+	glfw)
